@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Closet{% endblock %} 
+{% block content %}
+<body style="background-color:whitesmoke; color:cornflowerblue">
+</br>
+    <h1 align="center">Your Closet</h1>
+</br>
+
+    <ul class="list-group list-group-flush" id="storage">
+      {% for clothing in user.clothing %}
+      <li class="list-group-item">
+        {{ clothing.color + clothing.type }}
+        <button type="button" class="close" onClick="deleteClothing({{ clothing.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+</body>
+{% endblock %}
